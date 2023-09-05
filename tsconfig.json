@@ -20,6 +20,7 @@
     ],
     "skipLibCheck": true,
     "target": "esnext",
+    "outDir": "tmp",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "esModuleInterop": true,
