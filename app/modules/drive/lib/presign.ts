@@ -1,5 +1,5 @@
 import { formatTo, toBuffer } from "bformat";
-import { decrypt, encrypt } from "@things/crypto";
+import { decrypt, encrypt } from "crypted";
 import { env } from "@core/env";
 import { ZodSchema } from "zod";
 

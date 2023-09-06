@@ -19,13 +19,16 @@ dependencies:
     version: 1.4.0
   bformat:
     specifier: latest
-    version: 0.1.1
+    version: 0.1.2
   cookie-parser:
     specifier: ^1.4.6
     version: 1.4.6
   cors:
     specifier: ~2.8.5
     version: 2.8.5
+  crypted:
+    specifier: ^0.1.1
+    version: 0.1.1
   dotenv:
     specifier: 16.3.1
     version: 16.3.1
@@ -67,6 +70,9 @@ dependencies:
     version: 3.21.4
 
 devDependencies:
+  '@biomejs/biome':
+    specifier: ^1.1.0
+    version: 1.1.0
   '@types/cookie-parser':
     specifier: ^1.4.4
     version: 1.4.4
@@ -79,6 +85,9 @@ devDependencies:
   '@types/jest':
     specifier: ^29.4.0
     version: 29.4.0
+  '@types/jsonwebtoken':
+    specifier: ^9.0.2
+    version: 9.0.2
   '@types/node':
     specifier: ^20.5.9
     version: 20.5.9
@@ -1462,6 +1471,74 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
+  /@biomejs/biome@1.1.0:
+    resolution: {integrity: sha512-0cDWzMdKhGq/xhmnEVRUHYp7OPGJdKP/Ykps+z20AeUNbwvxY6sKCtXYxnO2KRD34+3akSzhrzvknM4YsyiFlw==}
+    engines: {node: '>=14.*'}
+    hasBin: true
+    requiresBuild: true
+    optionalDependencies:
+      '@biomejs/cli-darwin-arm64': 1.1.0
+      '@biomejs/cli-darwin-x64': 1.1.0
+      '@biomejs/cli-linux-arm64': 1.1.0
+      '@biomejs/cli-linux-x64': 1.1.0
+      '@biomejs/cli-win32-arm64': 1.1.0
+      '@biomejs/cli-win32-x64': 1.1.0
+    dev: true
+
+  /@biomejs/cli-darwin-arm64@1.1.0:
+    resolution: {integrity: sha512-2NbviMV7029//HW3Dltk0BUDcprQCkBPpanleEewJ5rm86f4r9/ELzG0w6LhBsjt10Opy7RpY3Hd6B/WrIRSvw==}
+    engines: {node: '>=14.*'}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@biomejs/cli-darwin-x64@1.1.0:
+    resolution: {integrity: sha512-LuJNjGCBR8LScKTuIIl/mcNVDq2yGfBRYTUAplEmJB/I2/pj2jaD69idaN9AAOodA23i3G1IuZCh4a/8KhFs3g==}
+    engines: {node: '>=14.*'}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@biomejs/cli-linux-arm64@1.1.0:
+    resolution: {integrity: sha512-5D9waO1dB0nZg1TB9LNtc/PT9P5+sapF8J2NHPOzxttIWaM0NNUCJACCtJ8nDdd/pXXsFME2LYYrUeFSIBLD1Q==}
+    engines: {node: '>=14.*'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@biomejs/cli-linux-x64@1.1.0:
+    resolution: {integrity: sha512-fsKs7kANBtTR8y/qqoWqIQPmkC7VtnsVN3sy5wmqzT7vjHyZPJoL1QDIiZlYDJO6pVBOjkRniNFCQhtXkZDfWA==}
+    engines: {node: '>=14.*'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@biomejs/cli-win32-arm64@1.1.0:
+    resolution: {integrity: sha512-u/Q8IjfDFJh5lJx3bUJW2dS/qRtOdU31ZN750xQi5rot0zCHiIcVkQ+aLIREaftmWw4kbVCvJHnpSnZsNGLUqg==}
+    engines: {node: '>=14.*'}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@biomejs/cli-win32-x64@1.1.0:
+    resolution: {integrity: sha512-1KngaabxKQ0ai3P6UiL0d3tq6P5OQvZ9eVHhaqHkHnmY5th61+1EoILWu6zGKdKc2/O/HS+0qOgeFS8wTEHTaA==}
+    engines: {node: '>=14.*'}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /@cspotcode/source-map-support@0.8.1:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
@@ -2342,6 +2419,12 @@ packages:
       pretty-format: 29.6.3
     dev: true
 
+  /@types/jsonwebtoken@9.0.2:
+    resolution: {integrity: sha512-drE6uz7QBKq1fYqqoFKTDRdFCPHd5TCub75BM+D+cMx7NU9hUz7SESLfC2fSCXVFMO5Yj8sOWHuGqPgjc+fz0Q==}
+    dependencies:
+      '@types/node': 20.5.9
+    dev: true
+
   /@types/mime@1.3.2:
     resolution: {integrity: sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw==}
     dev: true
@@ -2612,8 +2695,8 @@ packages:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
     dev: false
 
-  /bformat@0.1.1:
-    resolution: {integrity: sha512-kyLd06fnTgmi97rRKPnAZ5eza5TByDmSZloPB8mp20tPV3awKEQY6IbMJJEnUA8EjX5/mjxTkrM1xXJrGsCvbw==}
+  /bformat@0.1.2:
+    resolution: {integrity: sha512-vhm4WpZvLcVMYEvDtUM6Cr1KZx3CdOdPEQUpNMxpHyiLiUXplq9WXIzpMg4K6monE15jherDA17lzARkBzE5ZA==}
     dependencies:
       zod: 3.22.2
     dev: false
@@ -2985,6 +3068,13 @@ packages:
       shebang-command: 2.0.0
       which: 2.0.2
     dev: true
+
+  /crypted@0.1.1:
+    resolution: {integrity: sha512-vAOJGZUUNpw9L8yKCdkJnm0wP4IlvIVURUx3mNP1rC9cnVlTlzUGEqM5CObhoOgXn4FxgZlSAJekCC2XW0tOFw==}
+    dependencies:
+      '@node-rs/argon2': 1.5.2
+      bformat: 0.1.2
+    dev: false
 
   /crypto-js@4.1.1:
     resolution: {integrity: sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==}

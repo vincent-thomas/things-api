@@ -1,7 +1,7 @@
 import { env } from "@core/env";
 import { s3 } from "../client";
 import { PutObjectCommand } from "@aws-sdk/client-s3";
-import { encrypt } from "@things/crypto";
+import { encrypt } from "crypted";
 import { fromBuffer } from "bformat";
 
 export const uploadObject = async (
