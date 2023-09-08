@@ -4,5 +4,8 @@ export default {
 	},
 	"nodeArguments": [
 		"--loader=tsx"
+	],
+	"files": [
+		"e2e/tests/**/*.ts"
 	]
 }

@@ -1,21 +1,17 @@
-import { upsertUser } from "@core/data";
-import { createToken } from "@core/hooks";
 import app from "@app";
 import test from "ava";
 import request from "supertest";
+import { createTestUserAndToken, removeTestUser } from "@e2e/helpers";
 
 let authToken: string;
+const prefix = "/drive/folder";
 
 test.before(async () => {
-  await upsertUser({
-    email: "test@example.com",
-    id: "TEST",
-    locale: "en",
-    name: "TESTING",
-    verified_email: false,
-    picture: "https://example.com"
-  });
-  authToken = createToken("TEST");
+  authToken = await createTestUserAndToken(prefix);
+});
+
+test.after(async () => {
+  await removeTestUser(prefix);
 });
 
 // Jobbar på denna

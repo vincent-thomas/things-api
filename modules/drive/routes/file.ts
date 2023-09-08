@@ -6,7 +6,7 @@ import { STATUS_CODE, sendResult } from "@core/http";
 import { getDBObject, updateDBObject } from "@core/data";
 import { env } from "@core/env";
 import { presigned } from "../lib/presign";
-import { createObject } from "../lib/object";
+import { createObject, getObjectData } from "../lib/object";
 const file: Router = Router();
 
 const { input: getFileValidator, values: getFileValues } = validate(
@@ -90,9 +90,7 @@ file.post("/objectUpload/:data", validatorThis, async (req, res) => {
     return res.json({ error: "Link not valid" });
   }
   const user = getToken(req, true);
-
   const theBody = await readBodyAsBuffer(req);
-
   const result = await createObject(
     fileMeta.folderId,
     user.sub,
@@ -102,6 +100,7 @@ file.post("/objectUpload/:data", validatorThis, async (req, res) => {
     },
     theBody
   );
+
   if (result) {
     sendResult(res, undefined, STATUS_CODE.CREATED);
   } else {
@@ -133,5 +132,21 @@ file.patch("/:fileId", authorize, updateFileInput, async (req, res) => {
 
   sendResult(res, { success: true, message: ":(" });
 });
+
+const {values, input} = validate(z.object({
+  params: z.object({
+    fileId: z.string()
+  })
+}))
+
+
+file.get("/:fileId", input, (req, res) => {
+
+  const {params} = values(req);
+  const user = getToken(req, true);
+  
+  const data = getObjectData(user.sub, params.fileId);
+  sendResult(res, data, STATUS_CODE.OK);
+})
 
 export { file };

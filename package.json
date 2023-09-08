@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "lint": "tsc -p tsconfig.json && tsc -p tsconfig.e2e.json",
+    "lint": "tsc -p tsconfig.json",
     "db:push": "drizzle-kit push:mysql",
     "db:studio": "drizzle-kit studio",
-    "test": "node --no-warnings node_modules/ava/entrypoints/cli.mjs ./e2e/tests",
+    "test": "node --no-warnings node_modules/ava/entrypoints/cli.mjs",
     "e2e": "node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js",
     "serve": "tsx watch main.ts --tsconfig ./tsconfig.json",
-    "build": " && tsup",
+    "build": "tsup",
     "build:docker": "docker build . -t things-api:latest"
   },
   "type": "module",

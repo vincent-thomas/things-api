@@ -7,6 +7,7 @@ import {
 } from "@e2e/helpers";
 import { APP_URL } from "@e2e/data/defaults";
 import test from "ava";
+
 let authToken: string;
 let presignedUrl: string;
 

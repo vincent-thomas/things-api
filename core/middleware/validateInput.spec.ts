@@ -18,7 +18,7 @@ const res = {
 
 describe("validateInput", () => {
   test("Input-middleware validating with correct input", () => {
-    const nextFunction = jest.fn() as NextFunction;
+    const nextFunction = () => {};
     const req = {
       body: {
         test: "test"

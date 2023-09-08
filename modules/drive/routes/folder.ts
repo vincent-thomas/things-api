@@ -20,7 +20,7 @@ const { input: getFoldersBalidator, values: getFolderValues } = validate(
 );
 
 folder.get("/:folderId?", authorize, getFoldersBalidator, async (req, res) => {
-  const { query, params } = getFolderValues(req);
+  const { params } = getFolderValues(req);
   const token = getToken(req);
   // TODO
 
