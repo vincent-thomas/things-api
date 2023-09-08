@@ -6,25 +6,25 @@ import {
   createPresignedUrl
 } from "@e2e/helpers";
 import { APP_URL } from "@e2e/data/defaults";
-
+import test from "ava";
 let authToken: string;
 let presignedUrl: string;
 
-beforeAll(async () => {
-  await removeTestUser();
-  authToken = await createTestUserAndToken();
+const prefix = "drive/object/uploading";
+
+test.before(async () => {
+  authToken = await createTestUserAndToken(prefix);
   presignedUrl = (await createPresignedUrl(authToken)).replace(APP_URL, "");
+})
+
+test.after(async () => {
+  await removeTestUser(prefix);
 });
 
-afterAll(async () => {
-  await removeTestUser();
-});
-
-test("Uploading to the presigned Url", async () => {
+test("Uploading to the presigned Url", async (t) => {
   const res = await request(app)
     .post(presignedUrl)
     .set("Authorization", `Bearer ${authToken}`)
     .send(Buffer.from("Hello world"));
-  console.log(res.body, presignedUrl);
-  expect(res.status).toBe(201);
+  t.assert(res.status === 201);
 });

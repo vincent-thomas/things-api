@@ -1,23 +1,9 @@
 {
-  "exclude": [
-    "node_modules",
-    "jest.config.ts",
-    "e2e",
-    "**/*.spec.ts",
-    "**/*.e2e.ts",
-    "**/*.test.ts"
-  ],
-  "include": [
-    "app/**/*.ts",
-    "core/**/*.ts",
-    "data/**/*.ts",
-  ],
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts"],
   "compilerOptions": {
     "baseUrl": ".",
-    "types": [
-      "node",
-      "express"
-    ],
+    "types": ["node", "express"],
     "skipLibCheck": true,
     "target": "esnext",
     "outDir": "tmp",
@@ -27,25 +13,13 @@
     "composite": true,
     "noEmit": true,
     "paths": {
-      "@core/data": [
-        "data/public_api.ts"
-      ],
-      "@core/http": [
-        "core/http/public_api.ts"
-      ],
-      "@core/middleware": [
-        "core/middleware/public_api.ts"
-      ],
-      "@core/hooks": [
-        "core/hooks/index.ts"
-      ],
-      "@core/env": [
-        "core/env.ts"
-      ],
-      "@e2e/*": [
-        "e2e/*"
-      ],
-      "@app": ["app/app"]
+      "@core/data": ["data/public_api.ts"],
+      "@core/http": ["core/http/public_api.ts"],
+      "@core/middleware": ["core/middleware/public_api.ts"],
+      "@core/hooks": ["core/hooks/index.ts"],
+      "@core/env": ["core/env.ts"],
+      "@e2e/*": ["e2e/*"],
+      "@app": ["app.ts"]
     }
   }
 }

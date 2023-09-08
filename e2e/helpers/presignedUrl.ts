@@ -11,13 +11,10 @@ export const createPresignedUrl = async (authToken: string) => {
       fileType: "txt",
       folderId: "testing"
     });
-  expect(res.body).toHaveProperty("url");
-  expect(res.body).toHaveProperty("expires");
   const parsed = z
     .object({ url: z.string().url(), expires: z.string() })
     .safeParse(res.body);
 
-  expect(parsed.success).toBe(true);
   if (parsed.success === false) {
     throw new Error();
   }

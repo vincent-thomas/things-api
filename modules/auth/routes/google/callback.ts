@@ -1,13 +1,13 @@
 import { Router } from "express";
 import { validate } from "@core/middleware";
 import { z } from "zod";
-import { env } from "../../../../../core/env";
+import { env } from "@core/env";
 import { stringify } from "qs";
 import axios from "axios";
 import { upsertUser } from "@core/data";
 import { createToken } from "@core/hooks";
 
-const googleAuthCallback = Router();
+const googleAuthCallback: Router = Router();
 
 interface Shit {
   src: "web" | "terminal";

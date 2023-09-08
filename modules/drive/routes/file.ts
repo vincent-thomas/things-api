@@ -3,7 +3,7 @@ import { z } from "zod";
 import { authorize, validate } from "@core/middleware";
 import { getToken } from "@core/hooks";
 import { STATUS_CODE, sendResult } from "@core/http";
-import { createDBObject, getDBObject, updateDBObject } from "@core/data";
+import { getDBObject, updateDBObject } from "@core/data";
 import { env } from "@core/env";
 import { presigned } from "../lib/presign";
 import { createObject } from "../lib/object";

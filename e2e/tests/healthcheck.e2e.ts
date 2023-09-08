@@ -1,10 +1,9 @@
 import request from "supertest";
-import app from "@app";
+import app from "../../app";
+import test from "ava";
 
-test("It should response the GET method", () => {
-  request(app)
-    .get("/healthcheck")
-    .then((response) => {
-      expect(response.statusCode).toBe(200);
-    });
+test("It should response the GET method", async (t) => {
+  const response = await request(app)
+    .get("/healthcheck");
+  t.assert(response.statusCode === 200);
 });

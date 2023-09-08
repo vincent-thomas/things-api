@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { verify, sign } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import { env } from "@core/env";
 
 interface Token {
@@ -24,7 +24,7 @@ export const getToken = (req: Request, shouldUseCookies = false): Token => {
 };
 export const validateToken = (token: string) => {
   try {
-    const value = verify(token, env.getEnv("signKey")) as Token;
+    const value = jwt.verify(token, env.getEnv("signKey")) as Token;
     return value;
   } catch (e) {
     return null;
@@ -32,7 +32,7 @@ export const validateToken = (token: string) => {
 };
 
 export const createToken = (userId: string) => {
-  const result = sign(
+  const result = jwt.sign(
     {
       sub: userId
     },

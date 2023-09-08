@@ -1,10 +1,10 @@
 import { upsertUser, removeUser } from "../../data/db/repos";
 import { createToken } from "../../core/hooks";
 
-export const createTestUserAndToken = async () => {
+export const createTestUserAndToken = async (suffix: string) => {
   await upsertUser({
-    email: "test@example.com",
-    id: "TEST",
+    email: `test+${suffix}@example.com`,
+    id: "TEST-" + suffix,
     locale: "en",
     name: "TESTING",
     verified_email: false,
@@ -13,6 +13,6 @@ export const createTestUserAndToken = async () => {
   return createToken("TEST");
 };
 
-export const removeTestUser = () => {
-  return removeUser("TEST");
+export const removeTestUser = (suffix: string) => {
+  return removeUser("TEST-" + suffix);
 };

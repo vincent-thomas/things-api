@@ -6,6 +6,7 @@ export default {
   clean: true,
   treeshake: true,
   format: "esm",
-  entryPoints: ["./app/main.ts"],
-  outDir: resolve("dist")
+  entryPoints: ["./main.ts"],
+  outDir: resolve(".things/dist"),
+  silent: true
 } as Options;

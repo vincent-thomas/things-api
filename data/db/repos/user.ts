@@ -12,7 +12,7 @@ export const upsertUser = async (
     where: eq(user.id, data.id)
   });
 
-  if (existingUser) return existingUser;
+  if (existingUser !== undefined) {return existingUser;}
 
   await db.insert(user).values({ ...data, createdAt: new Date() });
   const newUser = (await db.query.user.findFirst({
@@ -52,7 +52,7 @@ export const removeUser = async (userId: string) => {
     await db.delete(user).where(eq(user.id, userId));
     return { success: true };
   } catch (e) {
-    console.trace(e);
+    console.trace("REMOVE USER", e);
     return { success: false };
   }
 };

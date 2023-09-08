@@ -1,6 +1,6 @@
 import "dotenv/config";
-import { EnvValidator } from "../core/env";
-import app from "./app";
+import { EnvValidator } from "@core/env";
+import app from "@app";
 
 async function bootstrap() {
   const port = process.env.PORT || 8080;
